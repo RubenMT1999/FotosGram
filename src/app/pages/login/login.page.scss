@@ -1,0 +1,27 @@
+
+.img-avatar{
+    width: 150px;
+}
+
+
+
+.mainSlide, .mainSlide ion-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+
+swiper-container{
+    width: 100%;
+    height: 80%;
+}
+
+
+swiper-slide{
+    text-align:center;
+    padding: 30px;
+}
