@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostsService } from 'src/app/services/posts.service';
+import { Geolocation } from '@capacitor/geolocation';
+
+interface Post {
+  mensaje: string;
+  coords: string | null;
+  posicion: boolean;
+}
 
 @Component({
   selector: 'app-tab2',
@@ -13,9 +20,10 @@ export class Tab2Page {
   cargandoGeo = false;
 
   constructor(private postsService: PostsService,
-              private route: Router) {}
+              private route: Router,
+              private geolocation: Geolocation) {}
 
-  post = {
+  post:Post = {
     mensaje: '',
     coords: null,
     posicion: false
@@ -27,7 +35,7 @@ export class Tab2Page {
 
     this.post = {
       mensaje: '',
-      coords: null,
+      coords: null ,
       posicion: false
     };
 
@@ -35,7 +43,7 @@ export class Tab2Page {
   }
 
 
-  getGeo(){
+  async getGeo(){
 
     if(!this.post.posicion){
       this.post.coords = null;
@@ -43,7 +51,19 @@ export class Tab2Page {
     }
 
     this.cargandoGeo = true;
-    console.log(this.post);
+
+    try{
+      const coordinates = await Geolocation.getCurrentPosition();
+    
+      this.cargandoGeo = false;
+
+      const coords = `${coordinates.coords.latitude},${coordinates.coords.longitude}`;
+      console.log(coords);
+      this.post.coords = coords;
+    }catch(error){
+      console.log(error);
+      this.cargandoGeo = false;
+    }
   }
 
 }
