@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, enableProdMode } from '@angular/core';
 import { register } from 'swiper/element/bundle';
 
 //para usar componente swipper de ionic
 register();
+
 
 @Component({
   selector: 'app-root',

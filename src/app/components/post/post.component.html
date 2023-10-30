@@ -14,7 +14,7 @@
 </ion-item>
 
 <!--ngIf existen imgs -->
-<swiper-container pager="true">
+<!-- <swiper-container pager="true">
   <swiper-slide class="image-slide"
                 [style]="img1 | domSanitizer">
 
@@ -23,10 +23,11 @@
                 style="background-image: url('/assets/perro-2.jpg')">
 
   </swiper-slide>
-</swiper-container>
+</swiper-container> -->
 
 
 <!-- mapa -->
+<app-mapa [coords]="post.coords!"></app-mapa>
 
 
 <ion-item lines="none">

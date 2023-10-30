@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { IonicStorageModule } from '@ionic/storage-angular';
-import { Geolocation } from '@capacitor/geolocation';
+
 
 @NgModule({
   declarations: [AppComponent],
